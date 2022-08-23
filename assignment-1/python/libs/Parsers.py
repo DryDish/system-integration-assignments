@@ -42,9 +42,8 @@ class Txt:
 
     def str_parse(io_file) -> str:
         file = open(io_file, "rt")
-
         nested = 0
-        nest_name = ""
+        nested_dict_name = ""
         nested_dict = {}
         something = {}
         for line in file:
@@ -59,15 +58,13 @@ class Txt:
                         something.update(Txt.to_dict(lines[0], lines[1]))
                 else:
                     nested = 1
-                    nest_name = lines[0]
+                    nested_dict_name = lines[0]
             elif len(lines) < 2:
-                print('smol line')
-                something.update({nest_name: nested_dict})
+                something.update({nested_dict_name: nested_dict})
                 nested = 0
                 nested_dict = {}
             else:
-                list = line.split('"')[1]
-                something.update({lines[0]: [list]})
+                list = [word.strip() for word in line.split('"')[1].split(",")]
+                something.update({lines[0]: list})
 
         return something
-
