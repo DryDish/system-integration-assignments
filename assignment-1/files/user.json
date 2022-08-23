@@ -2,7 +2,7 @@
     "name": "Peter Johnson",
     "age": 12,
     "address": {
-        "street name": "street one",
+        "street_name": "street one",
         "floor": "1st",
         "area_code": 2400
     },
