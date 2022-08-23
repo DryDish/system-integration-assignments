@@ -1,0 +1,10 @@
+name: "Peter Johnson"
+age: 12
+address:
+  street_name: "street one"
+  floor: "1st"
+  area_code: 2400
+likes:
+  - "cats"
+  - "food"
+  - "oxygen"
