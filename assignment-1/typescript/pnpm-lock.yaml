@@ -1,0 +1,85 @@
+lockfileVersion: 5.4
+
+specifiers:
+  '@types/node': ^18.7.13
+  '@types/papaparse': ^5.3.4
+  '@types/xml2js': ^0.4.11
+  papaparse: ^5.3.2
+  tsc-node: ^0.0.3
+  typescript: ^4.7.4
+  xml2js: ^0.4.23
+  yaml: ^2.1.1
+
+dependencies:
+  papaparse: 5.3.2
+  typescript: 4.7.4
+  xml2js: 0.4.23
+  yaml: 2.1.1
+
+devDependencies:
+  '@types/node': 18.7.13
+  '@types/papaparse': 5.3.4
+  '@types/xml2js': 0.4.11
+  tsc-node: 0.0.3
+
+packages:
+
+  /@types/node/18.7.13:
+    resolution: {integrity: sha512-46yIhxSe5xEaJZXWdIBP7GU4HDTG8/eo0qd9atdiL+lFpA03y8KS+lkTN834TWJj5767GbWv4n/P6efyTFt1Dw==}
+    dev: true
+
+  /@types/papaparse/5.3.4:
+    resolution: {integrity: sha512-61/jki1Ri+v1/Fobrf4rlIo6ExNM8P0CHYwId8wkrC2WiKfDwiRtn/hiAa6jXj8vPa4oFZ14uFKME547V4VGyQ==}
+    dependencies:
+      '@types/node': 18.7.13
+    dev: true
+
+  /@types/xml2js/0.4.11:
+    resolution: {integrity: sha512-JdigeAKmCyoJUiQljjr7tQG3if9NkqGUgwEUqBvV0N7LM4HyQk7UXCnusRa1lnvXAEYJ8mw8GtZWioagNztOwA==}
+    dependencies:
+      '@types/node': 18.7.13
+    dev: true
+
+  /papaparse/5.3.2:
+    resolution: {integrity: sha512-6dNZu0Ki+gyV0eBsFKJhYr+MdQYAzFUGlBMNj3GNrmHxmz1lfRa24CjFObPXtjcetlOv5Ad299MhIK0znp3afw==}
+    dev: false
+
+  /sax/1.2.4:
+    resolution: {integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==}
+    dev: false
+
+  /tsc-node/0.0.3:
+    resolution: {integrity: sha512-cCfkuHFGRUS5afZhabC9a8KEY1KD2X85KmXUu20HUUFXzJMHGfUvc6t++sy9p02dAscZsNfxKcUVbFLhTltTcA==}
+    dependencies:
+      typescript: 2.9.2
+    dev: true
+
+  /typescript/2.9.2:
+    resolution: {integrity: sha512-Gr4p6nFNaoufRIY4NMdpQRNmgxVIGMs4Fcu/ujdYk3nAZqk7supzBE9idmvfZIlH/Cuj//dvi+019qEue9lV0w==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
+    dev: true
+
+  /typescript/4.7.4:
+    resolution: {integrity: sha512-C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
+    dev: false
+
+  /xml2js/0.4.23:
+    resolution: {integrity: sha512-ySPiMjM0+pLDftHgXY4By0uswI3SPKLDw/i3UXbnO8M/p28zqexCUoPmQFrYD+/1BzhGJSs2i1ERWKJAtiLrug==}
+    engines: {node: '>=4.0.0'}
+    dependencies:
+      sax: 1.2.4
+      xmlbuilder: 11.0.1
+    dev: false
+
+  /xmlbuilder/11.0.1:
+    resolution: {integrity: sha512-fDlsI/kFEx7gLvbecc0/ohLG50fugQp8ryHzMTuW9vSa1GJ0XYWKnhsUx7oie3G98+r56aTQIUB4kht42R3JvA==}
+    engines: {node: '>=4.0'}
+    dev: false
+
+  /yaml/2.1.1:
+    resolution: {integrity: sha512-o96x3OPo8GjWeSLF+wOAbrPfhFOGY0W00GNaxCDv+9hkcDJEnev1yh8S7pgHF0ik6zc8sQLuL8hjHjJULZp8bw==}
+    engines: {node: '>= 14'}
+    dev: false
