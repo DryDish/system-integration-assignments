@@ -12,3 +12,13 @@ You decide the content.
 Create scripts that can read and parse the files in 2 programming languages of your choice.
 
 **Hand-in:** Link to the relevant folders in your Git repository. 
+
+---
+
+## Completed:
+
+Python: `text, xml, yaml, json, csv`
+
+Typescript: `text, xml, yaml, json, csv`
+
+Rust: `xml, yaml, json`
