@@ -3,7 +3,7 @@ from posixpath import dirname
 from typing import Literal
 import yaml
 import xml
-from xml.dom import minidom
+import xmltodict
 import csv
 
 def parse_path(path):
@@ -11,7 +11,7 @@ def parse_path(path):
     return current_path + "/../../files/" + path
 
 class Json():
-    def str_parse(io_file: json) -> str:
+    def parse(io_file: json) -> str:
         io_file = parse_path(io_file)
         file = open(io_file, "rt")
         parsed_user = json.loads(file.read())
@@ -20,7 +20,7 @@ class Json():
         return parsed_user
 
 class Yaml:
-    def str_parse(io_file: yaml) -> str:
+    def parse(io_file: yaml) -> dict:
         io_file = parse_path(io_file)
         file = open(io_file, "rt")
         parsed_user = yaml.safe_load(file.read())
@@ -29,16 +29,17 @@ class Yaml:
         return parsed_user;
 
 class Xml:
-    def str_parse(io_file: xml) -> str:
+    def parse(io_file: xml) -> dict:
         io_file = parse_path(io_file)
-        file = open(io_file, "rt")
-        parsed_user = minidom.parse(file).toxml()
-
+        file = open(io_file, "r")
+        print("umm yo?")
+        parsed_user = xmltodict.parse(file.read());
+        print("umm yu!")
         return parsed_user
 
 
 class Csv:
-    def str_parse(io_file: csv) -> str:
+    def parse(io_file: csv) -> dict:
         io_file = parse_path(io_file)
         file = open(io_file, "r")
         reader = csv.DictReader(file)
@@ -49,7 +50,7 @@ class Txt:
     def __to_dict(str1, str2) -> dict:
         return {str1.strip() : str2.replace('\n', '')}
 
-    def str_parse(io_file) -> str:
+    def parse(io_file) -> dict:
         io_file = parse_path(io_file)
         file = open(io_file, "rt")
         nested = 0
