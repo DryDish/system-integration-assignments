@@ -67,9 +67,12 @@ def print_test():
 
 
 if __name__ == '__main__':
+    port = int(os.environ.get("PYTHON_PORT")) or 1234
+    host = '127.0.0.1'
     uvicorn.run(
         "main:app",
-        port=int(os.environ.get("PYTHON_PORT") or 1234),
-        host='127.0.0.1',
-        reload=True
+        port=port,
+        host=host,
+        reload=True,
     )
+    print(f"Server running on port {port} on host {host}")
