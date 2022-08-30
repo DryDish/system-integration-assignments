@@ -36,9 +36,7 @@ class Xml:
     def parse(io_file: xml) -> dict:
         io_file = parse_path(io_file)
         file = open(io_file, "r")
-        print("umm yo?")
         parsed_user = xmltodict.parse(file.read())
-        print("umm yu!")
         return parsed_user
 
 
