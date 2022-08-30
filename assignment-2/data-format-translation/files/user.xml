@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+  <name>Peter Johnson</name>
+  <age>12</age>
+  <address>
+    <floor>1st</floor>
+    <area_code>2400</area_code>
+    <street_name>street one</street_name>
+  </address>
+  <likes>cats</likes>
+  <likes>food</likes>
+  <likes>oxygen</likes>
+</root>

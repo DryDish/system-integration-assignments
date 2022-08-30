@@ -1,0 +1,25 @@
+# This file works as follows:
+# key,value
+# this is the same as {'key': 'value'}
+#
+# If you want a list, its:
+# key,"value, value, value"
+# this is the equivalent of {'list_name': [value, value, value]}
+#
+# A nested dict works as follows
+# name,
+# key,value
+#
+# 
+# This structure must end on a blank line to define end of nesting
+# The example above is the equivalent to:
+# {'name': {'key': 'value'}}
+#
+name,Peter Johnson
+age,12
+address,
+  street_name,street one
+  floor,1st
+  area_code,2400
+
+likes, "cats, food, oxygen"
