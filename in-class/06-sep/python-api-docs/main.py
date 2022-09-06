@@ -1,8 +1,6 @@
-from datetime import timezone
 from fastapi import FastAPI
 
 import uvicorn
-import datetime
 
 
 app = FastAPI()
