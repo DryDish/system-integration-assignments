@@ -1,5 +1,4 @@
 from datetime import timezone
-import json
 from typing_extensions import Self
 from fastapi import FastAPI
 from requests.exceptions import ConnectionError
