@@ -1,60 +1,13 @@
-from datetime import timezone
-from typing_extensions import Self
 from fastapi import FastAPI
-from requests.exceptions import ConnectionError
 
 import uvicorn
-import datetime
-import requests
+from routers import date_time_router, date_time_from_rust_router
 
 
-app = FastAPI()
+app = FastAPI(title="Python Date Server")
 
-
-class DateTimeResponse:
-    utc_time_stamp: str
-
-    def __init__(self, timestamp: str) -> Self:
-        self.utc_time_stamp = timestamp
-
-
-class HttpResponse:
-    status: int
-    message: str
-
-    def __init__(self, status, message) -> Self:
-        self.status = status
-        self.message = message
-
-    def __repr__(self) -> str:
-        return f'"status": {self.status}, "message": {self.message}'
-
-    def internal_server_error(self) -> Self:
-        self.status = 500
-        self.message = "Internal Server Error"
-
-
-@app.get("/datetime")
-def date_time():
-    time = datetime.datetime.now(timezone.utc)
-
-    return {"utc_time_stamp":  time.isoformat()}
-
-
-@app.get("/datetime_from_rust")
-def date_time_from_rust():
-    try:
-        response = requests.get("http://localhost:5000/datetime")
-    except ConnectionError:
-        return HttpResponse(500, "Other Server is unreachable.")
-
-    if response.status_code == 200:
-        return DateTimeResponse(response.json()["utc_time_stamp"])
-    elif response.status_code == 500:
-        return HttpResponse.internal_server_error()
-    else:
-        return HttpResponse(418, "Unknown error.")
-
+app.include_router(date_time_router)
+app.include_router(date_time_from_rust_router)
 
 if __name__ == '__main__':
     port = 3000
@@ -65,4 +18,3 @@ if __name__ == '__main__':
         host=host,
         reload=True,
     )
-    print(f"Server running on port {port} on host {host}")
