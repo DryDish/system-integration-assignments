@@ -16,7 +16,6 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new()
             .wrap(middleware::Logger::default())
-            .route("/", web::get().to(|| async { "Page not found!" }))
             .service(date_time_route)
             .service(date_time_from_python_route)
             .default_service(web::route().to(not_found_route))

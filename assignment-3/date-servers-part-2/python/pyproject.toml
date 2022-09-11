@@ -8,6 +8,7 @@ authors = ["DryDish <57399961+DryDish@users.noreply.github.com>"]
 python = "^3.10"
 fastapi = "^0.81.0"
 uvicorn = "^0.18.3"
+requests = "^2.28.1"
 
 [tool.poetry.dev-dependencies]
 autopep8 = "^1.7.0"
