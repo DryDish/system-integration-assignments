@@ -11,7 +11,7 @@ app = FastAPI()
 def date_time():
     time = datetime.datetime.now(timezone.utc)
 
-    return {"utc_time_stamp:":  time.isoformat()}
+    return {"utc_time_stamp":  time.isoformat()}
 
 
 if __name__ == '__main__':

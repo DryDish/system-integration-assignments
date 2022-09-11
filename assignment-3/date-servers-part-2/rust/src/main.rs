@@ -1,28 +1,10 @@
-use actix_web::{get, middleware, web, App, HttpResponse, HttpServer, Responder};
-use chrono;
-use data_types::http_response::ResponseError;
-use serde::{Deserialize, Serialize};
-
 mod data_types;
+mod routes;
 
-#[derive(Serialize, Deserialize, Debug)]
-struct DateTimeResponse {
-    date_time: String,
-}
+use actix_web::{middleware, web, App, HttpServer};
+use routes::routes::{date_time_route, date_time_from_python_route, not_found_route};
 
-#[get("/datetime")]
-async fn date_time_route() -> impl Responder {
-    let utc = chrono::Utc::now();
 
-    let res = DateTimeResponse {
-        date_time: utc.to_rfc3339(),
-    };
-    HttpResponse::Ok().json(res)
-}
-
-pub async fn not_found_route() -> HttpResponse {
-    HttpResponse::NotFound().json(ResponseError::not_found())
-}
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
@@ -36,6 +18,7 @@ async fn main() -> std::io::Result<()> {
             .wrap(middleware::Logger::default())
             .route("/", web::get().to(|| async { "Page not found!" }))
             .service(date_time_route)
+            .service(date_time_from_python_route)
             .default_service(web::route().to(not_found_route))
     })
     .bind(("127.0.0.1", server_port))?

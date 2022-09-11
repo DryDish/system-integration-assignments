@@ -1,24 +1,32 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug)]
-pub struct ResponseError {
-    pub error: u16,
+pub struct CustomHttpResponse {
+    pub status: u16,
     pub message: String,
 }
 
+
 #[allow(dead_code)]
-impl ResponseError {
-    pub fn new<T: ToString>(error: u16, message: T) -> Self {
-        ResponseError {
-            error,
+impl CustomHttpResponse {
+    pub fn new<T: ToString>(code: u16, message: T) -> Self {
+        CustomHttpResponse {
+            status: code,
             message: message.to_string(),
         }
     }
 
     pub fn not_found() -> Self {
-        ResponseError {
-            error: 404,
-            message: String::from("Not found!"),
+        CustomHttpResponse {
+            status: 404,
+            message: String::from("Not found."),
+        }
+    }
+
+    pub fn internal_server_error() -> Self {
+        CustomHttpResponse {
+            status: 404,
+            message: String::from("Internal Server Error."),
         }
     }
 }
