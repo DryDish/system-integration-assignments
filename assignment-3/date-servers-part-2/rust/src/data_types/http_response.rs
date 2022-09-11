@@ -1,11 +1,11 @@
 use serde::{Deserialize, Serialize};
+use utoipa::ToSchema;
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, ToSchema)]
 pub struct CustomHttpResponse {
     pub status: u16,
     pub message: String,
 }
-
 
 #[allow(dead_code)]
 impl CustomHttpResponse {
@@ -25,7 +25,7 @@ impl CustomHttpResponse {
 
     pub fn internal_server_error() -> Self {
         CustomHttpResponse {
-            status: 404,
+            status: 500,
             message: String::from("Internal Server Error."),
         }
     }

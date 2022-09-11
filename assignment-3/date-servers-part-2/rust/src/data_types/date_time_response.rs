@@ -1,7 +1,9 @@
 use serde::{Deserialize, Serialize};
+use utoipa::ToSchema;
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, ToSchema)]
 pub struct DateTimeResponse {
+    #[schema(example = "2022-09-11T17:14:15.527468+00:00")]
     pub utc_time_stamp: String,
 }
 
