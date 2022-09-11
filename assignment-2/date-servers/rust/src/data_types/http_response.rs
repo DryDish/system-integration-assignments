@@ -6,6 +6,7 @@ pub struct ResponseError {
     pub message: String,
 }
 
+#[allow(dead_code)]
 impl ResponseError {
     pub fn new<T: ToString>(error: u16, message: T) -> Self {
         ResponseError {
