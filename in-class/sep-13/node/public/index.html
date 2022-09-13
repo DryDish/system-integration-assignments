@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Server-sent events</h2>
+    <div id="server-status"></div>
+    <div id="server-sent_message"></div>
+
+    <script>
+        const eventSource = new EventSource('/synchronizeTime');
+
+        eventSource.addEventListener("message", (event) => {
+            const serverSentMessages = document.getElementById('server-sent_message');
+            serverSentMessages.innerText = event.data
+            //console.log(event);
+        })
+
+        eventSource.addEventListener("open", (event)=> {
+            document.getElementById('server-status'.innerText = "connected");
+        })
+
+    </script>
+</body>
+</html>

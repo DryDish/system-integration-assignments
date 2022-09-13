@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Socket.io (Express)</title>
+  </head>
+  <body>
+    <h3>Type your message below</h3>
+    <input placeholder="message" id="message-input" />
+    <button onclick="sendMessage()" id="sendMessageButton">
+      Submit Message
+    </button>
+
+    <button onclick="sendPing()">Ping</button>
+
+    <div id="fuck"></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+
+      function sendPing() {
+        socket.emit("ping", "Secret message");
+      }
+
+      function sendMessage() {
+        const message = document.getElementById("message-input").value;
+        socket.emit("message", message);
+      }
+
+      socket.on("pong", (secretMessage) => {
+        console.log("Pong", secretMessage);
+      });
+
+      document
+        .getElementById("message-input")
+        .addEventListener("keypress", (event) => {
+          if (event.key === "Enter") {
+            
+            const text = document.getElementById("message-input");
+
+            if (text.value == "clr" || text.value == "clear") {
+              document.getElementById("fuck").innerText = "";
+              text.value = "";
+              return
+            }
+
+            sendMessage();
+            text.value = "";
+          }
+        });
+
+      socket.on("reply", (message) => {
+        const div = document.getElementById("fuck");
+        div.innerText += `${message} @${new Date().toISOString()}\n`;
+      });
+    </script>
+  </body>
+</html>
